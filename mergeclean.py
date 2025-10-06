@@ -2,6 +2,7 @@ import requests
 import re
 import time
 from datetime import datetime
+import os
 
 playlist_urls = [
     "https://raw.githubusercontent.com/Drewski2423/DrewLive/main/TVPass.m3u",
@@ -138,6 +139,16 @@ if __name__ == "__main__":
     if removed_count > 0:
         print(f"\n🗑️ Filtered out {removed_count} NSFW channels.")
 
+
+    def push_to_github():
+        os.system("git add .")
+        os.system(f"""git commit -m "{datetime.now()}" """)
+        os.system("git push")
+        print("successful")
+
     write_merged_playlist(clean_channels)
+    push_to_github()
     
     print(f"Merging complete at {datetime.now()}.")
+
+    

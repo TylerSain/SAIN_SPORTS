@@ -13,5 +13,6 @@ This repository provides scripts and configuration templates to **automatically 
   - EPG (XMLTV) mapping
   - Player shortcuts
 
-## THIS IS BUILT OFF DREWSKI2324/DREWLIVE repo! GO CHECK IT OUT!
+## THIS IS BUILT OFF DREWSKI2324/DREWLIVE repo! 
+- GO CHECK IT OUT!
 

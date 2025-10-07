@@ -123,7 +123,7 @@ def write_merged_playlist(all_channels):
 
 def github_workflow():
     gitAddStatus = os.system("git add .")
-    gitCommitStatus = os.system(f"""git commit -m "{datetime.now()}" """)
+    gitCommitStatus = os.system(f"""git commit --no-verify -m "{datetime.now()}" """)
     gitPushStatus = os.system("git push")
     
     if gitAddStatus == 0:

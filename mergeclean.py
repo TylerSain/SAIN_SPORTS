@@ -115,10 +115,10 @@ def write_merged_playlist(all_channels):
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
         f.write(final_output_string)
 
-    print(f"\n✅ Merged playlist written to {OUTPUT_FILE}.")
+    print(f"\n\n✅ Merged playlist written to {OUTPUT_FILE}.")
     print(f"📊 Total unique channels merged: {total_channels_written}.")
     print(f"🗑️ Duplicates skipped: {duplicates_skipped}.")
-    print(f"📝 Total lines in output file: {len(final_output_string.splitlines())}.")
+    print(f"📝 Total lines in output file: {len(final_output_string.splitlines())}.\n\n")
 
 
 def github_workflow():

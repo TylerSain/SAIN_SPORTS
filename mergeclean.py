@@ -23,12 +23,9 @@ def fetch_playlist(url, retries=3, timeout=30):
             print(f"Attempting to fetch {url} (try {attempt})...")
             res = requests.get(url, timeout=timeout, headers=headers)
             res.raise_for_status()
-            print(f"✅ Successfully fetched {url}")
             return res.text.strip().splitlines()
         except Exception as e:
-            print(f"❌ Attempt {attempt} failed for {url}: {e}")
             time.sleep(2)
-    print(f"⚠️ Skipping {url} after {retries} failed attempts.")
     return []
 
 def parse_playlist(lines, source_url="Unknown"):
@@ -136,9 +133,6 @@ if __name__ == "__main__":
 
     clean_channels = [entry for entry in all_channels_list if not is_nsfw(*entry)]
     
-    removed_count = len(all_channels_list) - len(clean_channels)
-    if removed_count > 0:
-        print(f"\n🗑️ Filtered out {removed_count} NSFW channels.")
 
 
     def push_to_github():

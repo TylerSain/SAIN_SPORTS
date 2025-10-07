@@ -121,6 +121,28 @@ def write_merged_playlist(all_channels):
     print(f"🗑️ Duplicates skipped: {duplicates_skipped}.")
     print(f"📝 Total lines in output file: {len(final_output_string.splitlines())}.")
 
+
+def github_workflow():
+    gitAddStatus = os.system("git add .")
+    gitCommitStatus = os.system(f"""git commit -m "{datetime.now()}" """)
+    gitPushStatus = os.system("git push")
+    
+    if gitAddStatus == 0:
+        print("Sucessful")
+    else:
+        print("failed")
+
+    if gitCommitStatus == 0:
+        print("Sucessful")
+    else:
+        print("failed")
+
+    if gitPushStatus == 0:
+        print("Sucessful")
+    else:
+        print("failed")
+
+
 if __name__ == "__main__":
     print(f"Starting playlist merge at {datetime.now()}...")
     all_channels_list = []
@@ -132,55 +154,9 @@ if __name__ == "__main__":
             all_channels_list.extend(parsed_channels)
 
     clean_channels = [entry for entry in all_channels_list if not is_nsfw(*entry)]
-    
-
-
-    def push_to_github():
-        gitAddStatus = os.system("git add .")
-        gitCommitStatus = os.system(f"""git commit -m "{datetime.now()}" """)
-        gitPushStatus = os.system("git push")
-        if gitAddStatus == 0:
-            print("Sucessful")
-        else:
-            print("failed")
-
-        if gitCommitStatus == 0:
-            print("Sucessful")
-        else:
-            print("failed")
-
-        if gitPushStatus == 0:
-            print("Sucessful")
-        else:
-            print("failed")
-
-    def push_to_github(msg):
-        gitAddStatus = os.system("git add .")
-        gitCommitStatus = os.system(f"""git commit -m "{msg}" """)
-        gitPushStatus = os.system("git push")
-        if gitAddStatus == 0:
-            print("Sucessful")
-        else:
-            print("failed")
-
-        if gitCommitStatus == 0:
-            print("Sucessful")
-        else:
-            print("failed")
-
-        if gitPushStatus == 0:
-            print("Sucessful")
-        else:
-            print("failed")
 
     write_merged_playlist(clean_channels)
-    message = input("Do you want to add a message? ")
-    if message == "Yes":
-        commitMsg = input("What do you want to say? ")
-        push_to_github(commitMsg)
-    else:
-        push_to_github()
-        
-        print(f"Merging complete at {datetime.now()}.")
+    github_workflow()
+    print(f"Merging complete at {datetime.now()}.")
 
     

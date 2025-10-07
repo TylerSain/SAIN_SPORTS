@@ -20,7 +20,6 @@ def fetch_playlist(url, retries=3, timeout=30):
     headers = {"User-Agent": "Mozilla/5.0"}
     for attempt in range(1, retries + 1):
         try:
-            print(f"Attempting to fetch {url} (try {attempt})...")
             res = requests.get(url, timeout=timeout, headers=headers)
             res.raise_for_status()
             return res.text.strip().splitlines()
@@ -152,7 +151,6 @@ if __name__ == "__main__":
         if lines:
             parsed_channels = parse_playlist(lines, source_url=url)
             all_channels_list.extend(parsed_channels)
-
     clean_channels = [entry for entry in all_channels_list if not is_nsfw(*entry)]
 
     write_merged_playlist(clean_channels)

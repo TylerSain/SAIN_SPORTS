@@ -127,9 +127,9 @@ def github_workflow():
     gitPushStatus = os.system("git push")
     
     if gitAddStatus == 0:
-        print("✅ Successful!")
+        print("\n✅ Successful!")
     else:
-        print("👎 Failed XD")
+        print("\n👎 Failed XD")
 
     if gitCommitStatus == 0:
         print("✅ Successful!")
@@ -137,9 +137,9 @@ def github_workflow():
         print("👎 Failed XD")
 
     if gitPushStatus == 0:
-        print("✅ Successful!")
+        print("✅ Successful!\n")
     else:
-        print("👎 Failed XD")
+        print("👎 Failed XD\n")
 
 
 if __name__ == "__main__":

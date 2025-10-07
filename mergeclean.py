@@ -117,8 +117,8 @@ def write_merged_playlist(all_channels):
 
     print(f"\n\n✅ Merged playlist written to {OUTPUT_FILE}.")
     print(f"📊 Total unique channels merged: {total_channels_written}.")
-    print(f"🗑️ Duplicates skipped: {duplicates_skipped}.")
-    print(f"📝 Total lines in output file: {len(final_output_string.splitlines())}.\n\n")
+    print(f"🗑️  Duplicates skipped: {duplicates_skipped}.")
+    print(f"📝 Total lines in output file: {len(final_output_string.splitlines())}.\n")
 
 
 def github_workflow():
@@ -127,7 +127,7 @@ def github_workflow():
     gitCommitStatus = os.system(f"""git commit --no-verify -m "{datetime.now()}" """)
     gitPushStatus = os.system("git push --quiet")
     print(f"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-    
+
     if gitAddStatus == 0:
         print("\n✅ Successful!")
     else:

@@ -145,7 +145,7 @@ def github_workflow():
 
 
 if __name__ == "__main__":
-    print(f"Starting playlist merge at {datetime.now()}...")
+    print(f"🏁 Starting playlist merge at {datetime.now()}...")
     all_channels_list = []
 
     for url in playlist_urls:

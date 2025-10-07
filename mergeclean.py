@@ -155,6 +155,6 @@ if __name__ == "__main__":
 
     write_merged_playlist(clean_channels)
     github_workflow()
-    print(f"✅ Merging complete at {datetime.now()}\n\n.")
+    print(f"✅ Merging complete at {datetime.now()}\n\n")
 
     

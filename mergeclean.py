@@ -137,9 +137,9 @@ def github_workflow():
         print("👎 Failed XD")
 
     if gitPushStatus == 0:
-        print("✅ Successful!\n")
+        print("✅ Successful!")
     else:
-        print("👎 Failed XD\n")
+        print("👎 Failed XD")
 
 
 if __name__ == "__main__":

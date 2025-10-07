@@ -139,7 +139,6 @@ if __name__ == "__main__":
         gitAddStatus = os.system("git add .")
         gitCommitStatus = os.system(f"""git commit -m "{datetime.now()}" """)
         gitPushStatus = os.system("git push")
-        
         if gitAddStatus == 0:
             print("Sucessful")
         else:
@@ -155,10 +154,33 @@ if __name__ == "__main__":
         else:
             print("failed")
 
+    def push_to_github(msg):
+        gitAddStatus = os.system("git add .")
+        gitCommitStatus = os.system(f"""git commit -m "{msg}" """)
+        gitPushStatus = os.system("git push")
+        if gitAddStatus == 0:
+            print("Sucessful")
+        else:
+            print("failed")
+
+        if gitCommitStatus == 0:
+            print("Sucessful")
+        else:
+            print("failed")
+
+        if gitPushStatus == 0:
+            print("Sucessful")
+        else:
+            print("failed")
 
     write_merged_playlist(clean_channels)
-    push_to_github()
-    
-    print(f"Merging complete at {datetime.now()}.")
+    message = input("Do you want to add a message? ")
+    if message == "Yes":
+        commitMsg = input("What do you want to say? ")
+        push_to_github(commitMsg)
+    else:
+        push_to_github()
+        
+        print(f"Merging complete at {datetime.now()}.")
 
     

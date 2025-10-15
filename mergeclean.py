@@ -125,7 +125,7 @@ def github_workflow():
     print(f"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     print(f"    ‼️  GIT CONSOLE RESPONSE ‼️")
     gitAddStatus = os.system("git add .")
-    gitCommitStatus = os.system(f"""git commit --no-verify -m "{datetime.now()}" """)
+    gitCommitStatus = os.system(f"""git commit -m "{datetime.now()}" """)
     gitPushStatus = os.system("git push --quiet")
     print(f"    ‼️  GIT CONSOLE RESPONSE ‼️")
     print(f"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")

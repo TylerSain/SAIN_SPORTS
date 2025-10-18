@@ -139,7 +139,7 @@ def github_workflow():
     else:
         print("\n👎 Failed XD")
 
-    if gitCommitStatus == 0:
+    if gitCommitStatus == 0 or gitCommitStatus == "nothing to commit, working tree clean":
         print("✅ Successful!")
     else:
         print("👎 Failed XD")

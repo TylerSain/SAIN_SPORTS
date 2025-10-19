@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#/usr/bin/env python3
 #-*- coding: utf-8 -*-
 
 
@@ -123,6 +123,7 @@ def write_merged_playlist(all_channels):
     print(f"📊 Total unique channels merged: {total_channels_written}.")
     print(f"🗑️  Duplicates skipped: {duplicates_skipped}.")
     print(f"📝 Total lines in output file: {len(final_output_string.splitlines())}.\n")
+
 
 
 def github_workflow():

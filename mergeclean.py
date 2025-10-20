@@ -21,7 +21,7 @@ OUTPUT_FILE = f"./M3U/SainIPTV.m3u8"
 
 print("\n\nStarting TV Show M3U")
 os.system("python3 tvshows.py")
-print('\n\n Done!')
+print('Done!')
 
 
 def fetch_playlist(url, retries=3, timeout=30):

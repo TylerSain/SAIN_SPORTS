@@ -46,13 +46,11 @@ def parse_playlist(lines, source_url="Unknown"):
                 if url_line and not url_line.startswith("#") and url_line != "*":
                     parsed_channels.append((extinf_line, tuple(channel_headers), url_line))
                 else:
-                    print(f"⚠️ Skipped entry in {source_url}. Reason: Invalid or placeholder URL '{url_line}'. Channel Info: {extinf_line}")
                 i += 1
             else:
                 i += 1
         else:
             i += 1
-    print(f"✅ Parsed {len(parsed_channels)} valid channels from {source_url}.")
     return parsed_channels
 
 def is_nsfw(extinf, headers, url):
@@ -115,40 +113,16 @@ def write_merged_playlist(all_channels):
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
         f.write(final_output_string)
 
-    print(f"\n\n✅ Merged playlist written to {OUTPUT_FILE}.")
-    print(f"📊 Total unique channels merged: {total_channels_written}.")
-    print(f"🗑️  Duplicates skipped: {duplicates_skipped}.")
-    print(f"📝 Total lines in output file: {len(final_output_string.splitlines())}.\n")
 
 
 
 def github_workflow():
-    print(f"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-    print(f"    ‼️  GIT CONSOLE RESPONSE ‼️")
     gitAddStatus = os.system("git add .")
     gitCommitStatus = os.system(f"""git commit -m "{datetime.now()}" """)
     gitPushStatus = os.system("git push --quiet")
-    print(f"    ‼️  GIT CONSOLE RESPONSE ‼️")
-    print(f"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-
-    if gitAddStatus == 0:
-        print("\n✅ Successful!")
-    else:
-        print("\n👎 Failed XD")
-
-    if gitCommitStatus == 0 or gitCommitStatus == "nothing to commit, working tree clean":
-        print("✅ Successful!")
-    else:
-        print("👎 Failed XD")
-
-    if gitPushStatus == 0:
-        print("✅ Successful!")
-    else:
-        print("👎 Failed XD")
 
 
 if __name__ == "__main__":
-    print(f"🏁 Starting playlist merge at {datetime.now()}...")
     all_channels_list = []
 
     for url in playlist_urls:

@@ -9,11 +9,11 @@ from datetime import datetime
 import os
 
 playlist_urls = [
-    "https://raw.githubusercontent.com/Drewski2423/DrewLive/refs/heads/main/DrewLiveVOD.m3u8",
+        "https://raw.githubusercontent.com/Drewski2423/DrewLive/refs/heads/main/DrewLiveVOD.m3u8",
     ]
 
 EPG_URL = "http://drewlive24.duckdns.org:8081/DrewLive.xml.gz"
-OUTPUT_FILE = f"./M3U/TVShow.m3u8"
+OUTPUT_FILE = f"./M3U/SainIPTV.m3u8"
 
 
 def fetch_playlist(url, retries=3, timeout=30):
@@ -46,6 +46,7 @@ def parse_playlist(lines, source_url="Unknown"):
                 if url_line and not url_line.startswith("#") and url_line != "*":
                     parsed_channels.append((extinf_line, tuple(channel_headers), url_line))
                 else:
+                    print(f"⚠️ Skipped entry in {source_url}. Reason: Invalid or placeholder URL '{url_line}'. Channel Info: {extinf_line}")
                 i += 1
             else:
                 i += 1
@@ -123,6 +124,7 @@ def github_workflow():
 
 
 if __name__ == "__main__":
+    print(f"🏁 Starting playlist merge at {datetime.now()}...")
     all_channels_list = []
 
     for url in playlist_urls:

@@ -128,5 +128,5 @@ if __name__ == "__main__":
     clean_channels = [entry for entry in all_channels_list if not is_nsfw(*entry)]
 
     write_merged_playlist(clean_channels)
-    print(f"✅ Merging complete at {datetime.now()}\n\n")
+    print(f"✅ Merging complete at {datetime.now()}")
 

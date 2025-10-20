@@ -116,13 +116,6 @@ def write_merged_playlist(all_channels):
 
 
 
-
-def github_workflow():
-    gitAddStatus = os.system("git add .")
-    gitCommitStatus = os.system(f"""git commit -m "{datetime.now()}" """)
-    gitPushStatus = os.system("git push --quiet")
-
-
 if __name__ == "__main__":
     print(f"🏁 Starting playlist merge at {datetime.now()}...")
     all_channels_list = []
@@ -135,6 +128,5 @@ if __name__ == "__main__":
     clean_channels = [entry for entry in all_channels_list if not is_nsfw(*entry)]
 
     write_merged_playlist(clean_channels)
-    github_workflow()
     print(f"✅ Merging complete at {datetime.now()}\n\n")
 

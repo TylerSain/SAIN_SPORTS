@@ -19,9 +19,9 @@ EPG_URL = "http://drewlive24.duckdns.org:8081/DrewLive.xml.gz"
 OUTPUT_FILE = f"./M3U/SainIPTV.m3u8"
 
 
-print("\n\nStarting TV Show M3U")
+print("\n\nStarting TV Show M3U\n")
 os.system("python3 tvshows.py")
-print('Done!')
+print('Done!\n\n')
 
 
 def fetch_playlist(url, retries=3, timeout=30):

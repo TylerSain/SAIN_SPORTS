@@ -19,6 +19,7 @@ playlist_urls = [
 EPG_URL = "http://drewlive24.duckdns.org:8081/DrewLive.xml.gz"
 OUTPUT_FILE = f"./M3U/SainIPTV.m3u8"
 
+os.system("python3 tvshows.py") 
 
 def fetch_playlist(url, retries=3, timeout=30):
     headers = {"User-Agent": "Mozilla/5.0"}

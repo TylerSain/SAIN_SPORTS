@@ -56,7 +56,7 @@ def parse_playlist(lines, source_url="Unknown"):
 
 def is_nsfw(extinf, headers, url):
     """Checks if a channel entry contains NSFW keywords."""
-    nsfw_keywords = ['Chris','nsfw', 'xxx', 'porn', 'adult', 'Bel-Air']
+    nsfw_keywords = ['chris','nsfw', 'xxx', 'porn', 'adult', 'Bel-Air']
     combined_text = f"{extinf.lower()} {' '.join(headers).lower()} {url.lower()}"
     group_match = re.search(r'group-title="([^"]+)"', extinf.lower())
     if group_match and any(k in group_match.group(1) for k in nsfw_keywords):
